@@ -10,7 +10,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log('title', title.value)
+    console.log('title', title)
     console.log('subtitle', subtitle.value)
     console.log('content', content.value)
 
@@ -34,26 +34,15 @@ const CreatePost = () => {
       <form action='' onSubmit={handleSubmit}>
         <div className='form-field'>
           <label>Title</label>
-          <input
-            type='text'
-            value={title.value}
-            onChange={title.handleChange}
-          />
+          <input type='text' {...title} />
         </div>
         <div className='form-field'>
           <label>Sub Title</label>
-          <input
-            type='text'
-            value={subtitle.value}
-            onChange={subtitle.handleChange}
-          />
+          <input type='text' {...subtitle} />
         </div>
         <div className='form-field'>
           <label>Content</label>
-          <textarea
-            value={content.value}
-            onChange={content.handleChange}
-          ></textarea>
+          <textarea {...content}></textarea>
         </div>
         <button className='create-post-btn'>Submit</button>
       </form>
@@ -69,7 +58,7 @@ const useHandleChange = (initialValue) => {
   }
   return {
     value,
-    handleChange,
+    onChange: handleChange,
   }
 }
 
