@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import db from '../firebase'
 import { collection, getDocs } from 'firebase/firestore'
+
 function Home() {
   const [posts, setPosts] = useState([])
 
@@ -11,7 +12,7 @@ function Home() {
         const docSnapshot = await getDocs(collection(db, 'posts'))
         let post = []
         docSnapshot.forEach((doc) => {
-          post.push(doc.data())
+          post.push({ ...doc.data(), id: doc.id })
         })
         setPosts(post)
       } catch (error) {
