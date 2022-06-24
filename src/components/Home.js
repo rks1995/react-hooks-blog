@@ -25,6 +25,7 @@ function Home() {
   return (
     <div className='home'>
       <h1>Posts</h1>
+      <button className='create-post-btn'>Submit</button>
       <div id='blog-by'>RatnaKr</div>
       {posts.map((post, index) => {
         return (

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import db from '../firebase'
 import { collection, addDoc } from 'firebase/firestore'
+// import styles from './button.module.css'
+import styled from 'styled-components'
 
 const CreatePost = () => {
   const title = useHandleChange('')
@@ -27,6 +29,14 @@ const CreatePost = () => {
     }
   }
 
+  const Button = styled.button`
+    padding: 5px;
+    border: none;
+    background-color: teal;
+    cursor: pointer;
+    color: #fff;
+  `
+
   return (
     <div className='create-post'>
       <h1>Create Post</h1>
@@ -44,7 +54,7 @@ const CreatePost = () => {
           <label>Content</label>
           <textarea {...content}></textarea>
         </div>
-        <button className='create-post-btn'>Submit</button>
+        <Button>Submit</Button>
       </form>
     </div>
   )
